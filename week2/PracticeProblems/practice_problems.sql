@@ -1,7 +1,7 @@
 use athletic;
 
 create table Customer(
-    custNo int auto_increment primary key,
+    custNo varchar(30) primary key,
     custName varchar(30),
     address varchar(256),
     Internal ENUM('Y', 'N') COMMENT 'Y stands for Yes. N stands for No.',
