@@ -14,3 +14,6 @@ services:
       MYSQL_DATABASE: athletic
       MYSQL_USER: root
       MYSQL_PASSWORD: root_password
+
+volumes:
+  mysql-db:
