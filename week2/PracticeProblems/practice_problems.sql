@@ -13,13 +13,13 @@ create table Customer(
 );
 
 create table Facility(
-    facNo int auto_increment primary key,
+    facNo varchar(30) primary key,
     facName varchar(30),
     CONSTRAINT CNSfacName UNIQUE (facName)
 );
 
 create table Location(
-    locNo int auto_increment primary key,
+    locNo varchar(30) auto_increment primary key,
     facNo int NOT NULL ,
     locName varchar(30) NOT NULL,
     FOREIGN KEY (facNo) references Facility(facNo)
