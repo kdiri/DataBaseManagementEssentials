@@ -1,4 +1,4 @@
--------------------- Student --------------------------------
+-- ------------------ Student --------------------------------
 
 CREATE TABLE Student (
 stdNo char(11) not null,
@@ -13,7 +13,7 @@ stdGPA decimal(3,2),
 CONSTRAINT StudentPk PRIMARY KEY (StdNo) );
 
 
--------------------- Course --------------------------------
+-- ------------------ Course --------------------------------
 
 CREATE TABLE Course(
 CourseNo	char(6) not null,
@@ -22,7 +22,7 @@ CrsUnits	integer,
 CONSTRAINT CoursePK PRIMARY KEY (CourseNo) );
 
 
--------------------- Faculty --------------------------------
+-- ------------------ Faculty --------------------------------
 
 CREATE TABLE Faculty(
 FacNo			char(11) not null,
@@ -39,7 +39,7 @@ FacDept			char(6),
 CONSTRAINT FacultyPK PRIMARY KEY (FacNo) );
 
 
--------------------- Offering --------------------------------
+-- ------------------ Offering --------------------------------
 
 CREATE TABLE Offering(
 OfferNo INTEGER not null,
@@ -55,7 +55,7 @@ CONSTRAINT CourseFK FOREIGN KEY (CourseNo) REFERENCES Course (CourseNo),
 CONSTRAINT FacultyFK FOREIGN KEY (FacNo) REFERENCES Faculty (FacNo) );
 
 
--------------------- Enrollment --------------------------------
+-- ------------------ Enrollment --------------------------------
 
 CREATE TABLE Enrollment (
 OfferNo		INTEGER not null,
