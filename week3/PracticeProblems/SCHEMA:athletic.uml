@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>DATABASE</ID>
+  <OriginalElement>e537b49a-2d21-464d-8477-1b6210ac37f9.SCHEMA:athletic</OriginalElement>
+  <nodes>
+    <node x="362.75" y="292.0">e537b49a-2d21-464d-8477-1b6210ac37f9.TABLE:athletic.Product</node>
+    <node x="291.25" y="540.0">e537b49a-2d21-464d-8477-1b6210ac37f9.TABLE:athletic.OrdLine</node>
+    <node x="169.75" y="259.0">e537b49a-2d21-464d-8477-1b6210ac37f9.TABLE:athletic.OrderTbl</node>
+    <node x="247.0" y="11.0">e537b49a-2d21-464d-8477-1b6210ac37f9.TABLE:athletic.Employee</node>
+    <node x="0.0" y="0.0">e537b49a-2d21-464d-8477-1b6210ac37f9.TABLE:athletic.Customer</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="e537b49a-2d21-464d-8477-1b6210ac37f9.TABLE:athletic.OrdLine" target="e537b49a-2d21-464d-8477-1b6210ac37f9.TABLE:athletic.Product">
+      <point x="32.5" y="-49.5" />
+      <point x="388.75" y="515.0" />
+      <point x="456.25" y="515.0" />
+      <point x="0.0" y="82.5" />
+    </edge>
+    <edge source="e537b49a-2d21-464d-8477-1b6210ac37f9.TABLE:athletic.OrdLine" target="e537b49a-2d21-464d-8477-1b6210ac37f9.TABLE:athletic.OrderTbl">
+      <point x="-32.5" y="-49.5" />
+      <point x="323.75" y="515.0" />
+      <point x="256.25" y="515.0" />
+      <point x="0.0" y="115.5" />
+    </edge>
+    <edge source="e537b49a-2d21-464d-8477-1b6210ac37f9.TABLE:athletic.OrderTbl" target="e537b49a-2d21-464d-8477-1b6210ac37f9.TABLE:athletic.Customer">
+      <point x="-43.25" y="-115.5" />
+      <point x="213.0" y="238.5" />
+      <point x="103.5" y="238.5" />
+      <point x="0.0" y="104.5" />
+    </edge>
+    <edge source="e537b49a-2d21-464d-8477-1b6210ac37f9.TABLE:athletic.Employee" target="e537b49a-2d21-464d-8477-1b6210ac37f9.TABLE:athletic.Employee">
+      <point x="-54.0" y="93.5" />
+      <point x="301.0" y="218.0" />
+      <point x="227.0" y="218.0" />
+      <point x="227.0" y="104.5" />
+      <point x="-108.0" y="-0.0" />
+    </edge>
+    <edge source="e537b49a-2d21-464d-8477-1b6210ac37f9.TABLE:athletic.OrderTbl" target="e537b49a-2d21-464d-8477-1b6210ac37f9.TABLE:athletic.Employee">
+      <point x="43.25" y="-115.5" />
+      <point x="299.5" y="238.5" />
+      <point x="409.0" y="238.5" />
+      <point x="54.0" y="93.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.8703154367418146" x="223.9270567285456" y="325.4459462810942" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Key columns</Category>
+    <Category>Columns</Category>
+    <Category>Virtual foreign keys</Category>
+  </Categories>
+</Diagram>
+

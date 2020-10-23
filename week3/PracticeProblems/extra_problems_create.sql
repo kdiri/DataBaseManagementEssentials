@@ -1,76 +1,76 @@
 -- Order Entry CREATE Statements MySQL
 
-DROP TABLE OrdLine;
-DROP TABLE OrderTbl;
-DROP TABLE Customer;
-DROP TABLE Employee;
-DROP TABLE Product;
+DROP TABLE IF EXISTS OrdLine;
+DROP TABLE IF EXISTS  OrderTbl;
+DROP TABLE IF EXISTS  Customer;
+DROP TABLE IF EXISTS  Employee;
+DROP TABLE IF EXISTS  Product;
 
--------------------- Customer --------------------------------
+-- ------------------ Customer --------------------------------
 
 CREATE TABLE Customer
 ( 	CustNo 	        CHAR(8),
-        CustFirstName   VARCHAR(20) NOT NULL,
-        CustLastName    VARCHAR(30) NOT NULL,
-	CustStreet	VARCHAR(50),
-	CustCity	VARCHAR(30),
-   	CustState	CHAR(2),
-	CustZip		CHAR(10),
-	CustBal		DECIMAL(12,2) DEFAULT 0,
- CONSTRAINT PKCustomer PRIMARY KEY (CustNo)  );
+     CustFirstName   VARCHAR(20) NOT NULL,
+     CustLastName    VARCHAR(30) NOT NULL,
+     CustStreet	VARCHAR(50),
+     CustCity	VARCHAR(30),
+     CustState	CHAR(2),
+     CustZip		CHAR(10),
+     CustBal		DECIMAL(12,2) DEFAULT 0,
+     CONSTRAINT PKCustomer PRIMARY KEY (CustNo)  );
 
 
--------------------- Employee --------------------------------
+-- ------------------ Employee --------------------------------
 
 CREATE TABLE Employee
 ( 	EmpNo 	 	CHAR(8),
-  	EmpFirstName    VARCHAR(20) NOT NULL,
-	EmpLastName     VARCHAR(30) NOT NULL,
-	EmpPhone        CHAR(15),
-	EmpEMail        VARCHAR(50) NOT NULL,
-   	SupEmpNo 	CHAR(8),
-        EmpCommRate	DECIMAL(3,3),
-CONSTRAINT PKEmployee PRIMARY KEY (EmpNo),
-CONSTRAINT UniqueEMail UNIQUE (EmpEMail),
-CONSTRAINT FKSupEmpNo FOREIGN KEY (SupEmpNo) REFERENCES Employee (EmpNo));
+     EmpFirstName    VARCHAR(20) NOT NULL,
+     EmpLastName     VARCHAR(30) NOT NULL,
+     EmpPhone        CHAR(15),
+     EmpEMail        VARCHAR(50) NOT NULL,
+     SupEmpNo 	CHAR(8),
+     EmpCommRate	DECIMAL(3,3),
+     CONSTRAINT PKEmployee PRIMARY KEY (EmpNo),
+     CONSTRAINT UniqueEMail UNIQUE (EmpEMail),
+     CONSTRAINT FKSupEmpNo FOREIGN KEY (SupEmpNo) REFERENCES Employee (EmpNo));
 
 
--------------------- Product --------------------------------
+-- ------------------ Product --------------------------------
 
 CREATE TABLE Product
 ( 	ProdNo 	         CHAR(8),
-  	ProdName	 VARCHAR(50) NOT NULL,
-	ProdMfg	         VARCHAR(20) NOT NULL,
-	ProdQOH	         INTEGER,
-	ProdPrice        DECIMAL(12,2),
-        ProdNextShipDate DATE,
- CONSTRAINT PKProduct PRIMARY KEY (ProdNo)  );
+     ProdName	 VARCHAR(50) NOT NULL,
+     ProdMfg	         VARCHAR(20) NOT NULL,
+     ProdQOH	         INTEGER,
+     ProdPrice        DECIMAL(12,2),
+     ProdNextShipDate DATE,
+     CONSTRAINT PKProduct PRIMARY KEY (ProdNo)  );
 
 
--------------------- OrderTbl --------------------------------
+-- ------------------ OrderTbl --------------------------------
 
 CREATE TABLE OrderTbl
 ( 	OrdNo 	   CHAR(8),
-  	OrdDate	   DATE NOT NULL,
-	CustNo	   CHAR(8) NOT NULL,
-        EmpNo	   CHAR(8),
-        OrdName    VARCHAR(50),
-        OrdStreet  VARCHAR(50),
-        OrdCity    VARCHAR(30),
-        OrdState   CHAR(2),
-        OrdZip     CHAR(10),
-CONSTRAINT PKOrderTbl PRIMARY KEY (OrdNo),
-CONSTRAINT FKCustNo FOREIGN KEY (CustNo) REFERENCES Customer (CustNo),
-CONSTRAINT FKEmpNo FOREIGN KEY (EmpNo) REFERENCES Employee (EmpNo) );
+     OrdDate	   DATE NOT NULL,
+     CustNo	   CHAR(8) NOT NULL,
+     EmpNo	   CHAR(8),
+     OrdName    VARCHAR(50),
+     OrdStreet  VARCHAR(50),
+     OrdCity    VARCHAR(30),
+     OrdState   CHAR(2),
+     OrdZip     CHAR(10),
+     CONSTRAINT PKOrderTbl PRIMARY KEY (OrdNo),
+     CONSTRAINT FKCustNo1 FOREIGN KEY (CustNo) REFERENCES Customer (CustNo),
+     CONSTRAINT FKEmpNo FOREIGN KEY (EmpNo) REFERENCES Employee (EmpNo) );
 
 
--------------------- OrdLine --------------------------------
+-- ------------------ OrdLine --------------------------------
 
 CREATE TABLE OrdLine
 ( 	OrdNo 	CHAR(8),
-  	ProdNo	CHAR(8),
-	Qty	INTEGER DEFAULT 1,
-CONSTRAINT PKOrdLine PRIMARY KEY (OrdNo, ProdNo),
-CONSTRAINT FKOrdNo FOREIGN KEY (OrdNo) REFERENCES OrderTbl (OrdNo)
-  ON DELETE CASCADE,
-CONSTRAINT FKProdNo FOREIGN KEY (ProdNo) REFERENCES Product (ProdNo) );
+     ProdNo	CHAR(8),
+     Qty	INTEGER DEFAULT 1,
+     CONSTRAINT PKOrdLine PRIMARY KEY (OrdNo, ProdNo),
+     CONSTRAINT FKOrdNo FOREIGN KEY (OrdNo) REFERENCES OrderTbl (OrdNo)
+         ON DELETE CASCADE,
+     CONSTRAINT FKProdNo FOREIGN KEY (ProdNo) REFERENCES Product (ProdNo) );
