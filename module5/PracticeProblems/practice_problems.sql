@@ -47,7 +47,7 @@ VALUES ('C106', 'High School Basketball', '123 AnyStreet', 'N', 'Coach Bob', '44
 --     SET SQL_SAFE_UPDATES = 0;
 --     UPDATE statement
 SET SQL_SAFE_UPDATES = 0;
-update resourcetbl set rate = rate + 10.00 where resname = 'nurse';
+update resourcetbl set rate = rate * 1.1 where resname = 'nurse';
 
 -- 6.	SET SQL_SAFE_UPDATES = 1;
 SET SQL_SAFE_UPDATES = 1;
